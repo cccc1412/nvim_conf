@@ -1,8 +1,3 @@
-## Neovim 配置
-
-个人neovim配置仓库，视频演示可查看[此处](https://www.bilibili.com/video/BV1WY411P736?spm_id_from=333.999.0.0)
-
-
 ## 要求
 
 本配置依赖如下环境:
@@ -11,20 +6,13 @@
 
 >建议：在[此处](https://github.com/neovim/neovim/releases)手动下载可执行文件。 通过类似 `apt` 的方式安装往往都是旧版本，arch系下载的又会过新。
 
-- gcc, cmake, make, fd, rg, glow, lazygit, global
-
-> ubuntu20.04的 fd, rg, glow, lazygit 已放在本仓库的bin目录下, 其余发行版请自行安装。
-
 ## 安装
-
-**安装过程中如遇任何问题，首先查看FAQ，如仍未能解决，可加入 QQ群:728502470 反馈**
 
 使用方法：
 
 1. clone本仓库，并在 `~/.config` 目录下建立nvim的软链接
   ```shell
-  git clone https://github.com/ravenxrz/dotfiles.git ~/.config/dotfiles
-  ln -s ~/.config/dotfiles/nvim ~/.config
+  ln -s nvim_conf ~/.config/nvim
   ```
 
 2.执行 `nvim +PackerSync` 命令， 根据网络条件的不同，可能需要多次执行本命令，直到所有插件下载完成
