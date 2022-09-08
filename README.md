@@ -21,6 +21,16 @@
 
 4.通过`DIInstall xxx`命令安装对应语言的 `debugger`, 除此外，需要在 `~/.dotfiles/nvim/lua/user/dap/`目录下新建对应语言的配置文件（已配置好c/cpp,go,python), 同时更新 `dap-config.lua` 文件下的 `config_debuggers()` 函数。
 
+
+5.配置tmux, 在.tmux.conf.local中添加
+```shell
+is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
+    | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
+bind-key -n C-h  if-shell  "$is_vim"  "send-keys C-h"  "select-pane -L"
+bind-key -n C-j   if-shell  "$is_vim"  "send-keys C-j"   "select-pane -D"
+bind-key -n C-k  if-shell  "$is_vim"  "send-keys C-k"  "select-pane -U"
+bind-key -n C-l   if-shell  "$is_vim"  "send-keys C-l"   "select-pane -R"
+```
 ## 常用快捷键说明
 
 > 注意：随着个人使用习惯的改变，快捷键可能会有所更改。
