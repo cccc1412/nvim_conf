@@ -173,7 +173,10 @@ return packer.startup(function(use)
   -- use "meain/vim-printer"
 
   -- use "akinsho/toggleterm.nvim" -- toggle terminal
-  -- use "ahmedkhalf/project.nvim" -- project manager
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+  use "ahmedkhalf/project.nvim" -- project manager
   use "lukas-reineke/indent-blankline.nvim" -- indent blankline
   use "folke/which-key.nvim" -- which  key
   use {
