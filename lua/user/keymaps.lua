@@ -22,29 +22,37 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+
+
 -- NOTE: require winshit plugin
 keymap("n", "<C-W>m", ":WinShift<cr>", opts)
 
--- i j remap to gi gj to get the consistent behaviour in wrap content mode (i.e. set wrap)
--- keymap("n", "j", "<Plug>(accelerated_jk_gj)", opts)
--- keymap("n", "k", "<Plug>(accelerated_jk_gk)", opts)
+keymap("v", "<A-j>", "5gj", opts)
+keymap("v", "<A-k>", "5gk", opts)
+keymap("v", "<A-h>", "5h", opts)
+keymap("v", "<A-l>", "5l", opts)
+keymap("n", "<A-j>", "5gj", opts) 
+keymap("n", "<A-k>", "5gk", opts)
+keymap("n", "<A-l>", "5l", opts)
+keymap("n", "<A-h>", "5h", opts)
 
 
 -- FileExpoler
--- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
-keymap('v', '<leader>f', "<ESC><cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+keymap("n", "<C-e>", ":NvimTreeToggle<cr>", opts)
+keymap("n", "<C-f>", ":NvimTreeFindFile<cr>", opts)
 -- no highlight
-keymap("n", "<leader>l", ":nohl<cr>", opts)
+keymap("n", "<leader>h", ":nohl<cr>", opts)
+
+keymap("n", "<C-t>", ":ToggleTerm<cr>", opts)
 -- save buffer
-keymap("n", "<leader>w", ":w<cr>", opts)
+-- keymap("n", "<leader>w", ":w<cr>", opts)
 -- exit cur window
 keymap("n", "<leader>q", ":q<cr>", opts)
 -- delete cur buffer
-keymap("n", "<leader>d", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
-keymap("n", "<leader>D", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+-- keymap("n", "<leader>d", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+-- keymap("n", "<leader>D", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 -- exit whole program
-keymap("n", "ZZ", ":lua require('user.utils').SaveAndExit()<cr>", opts)
+-- keymap("n", "ZZ", ":lua require('user.utils').SaveAndExit()<cr>", opts)
 -- remap macro record key
 keymap("n", "Q", "q", opts)
 -- cancel q
@@ -53,15 +61,15 @@ keymap("n", "q", "<Nop>", opts)
 -- center cursor
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
-keymap("n", "J", "mzJ`z", opts)
+-- keymap("n", "J", "mzJ`z", opts)
 -- keymap("n", "j", "jzz", opts)
 -- keymap("n", "k", "kzz", opts)
 
 -- Resize with arrows
-keymap("n", "<A-Up>", ":resize -2<CR>", opts)
-keymap("n", "<A-Down>", ":resize +2<CR>", opts)
-keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 -- keymap("n", "R", ":bnext<CR>", opts)
@@ -71,18 +79,18 @@ keymap("n", "R", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "E", ":BufferLineCyclePrev<CR>", opts)
 
 -- Navigate line
-keymap("n", "H", "^", opts)
-keymap("n", "L", "$", opts)
-keymap("v", "H", "^", opts)
-keymap("v", "L", "$", opts)
+-- keymap("n", "H", "^", opts)
+-- keymap("n", "L", "$", opts)
+-- keymap("v", "H", "^", opts)
+-- keymap("v", "L", "$", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
+-- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
 -- Press jl fast to enter
-keymap("i", "jl", "<ESC>", opts)
+-- keymap("i", "jl", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -92,7 +100,7 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 -- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 -- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+-- keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -120,7 +128,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
 keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<cr>", opts)
-keymap("n", "<leader>u", "<cmd>Trouble lsp_references<cr>", opts)
+-- keymap("n", "<leader>u", "<cmd>Trouble lsp_references<cr>", opts)
 
 -- calltree
 keymap("n", "<leader>in", "<cmd>lua vim.lsp.buf.incoming_calls()<cr>", opts)
@@ -145,24 +153,67 @@ keymap('n', '<leader>j', ']c', opts)
 keymap('n', '<leader>k', '[c', opts)
 
 -- unit test
-keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
-keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
+-- keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
+-- keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
 
 -- comment
-keymap("n", "gcf", "<cmd>Dox<cr>", opts)
+-- keymap("n", "gcf", "<cmd>Dox<cr>", opts)
 
 -- sniprun
-keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
-keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
+-- keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
+-- keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
 
 -- spell check
-vim.cmd(
-[[
-  nnoremap <leader>s :call search('\w\>', 'c')<CR>a<C-X><C-S>
-]])
+-- vim.cmd(
+-- [[
+--  nnoremap <leader>s :call search('\w\>', 'c')<CR>a<C-X><C-S>
+-- ]])
 
 -- gtags
 -- find functions calling this function
-keymap("n", "<leader>U", ":lua require('user.utils').GtagsRefernce()<cr>", opts)
+-- keymap("n", "<leader>U", ":lua require('user.utils').GtagsRefernce()<cr>", opts)
 -- find definition
-keymap("n", "<leader>T", ":lua require('user.utils').GtagsText()<cr>", opts)
+-- keymap("n", "<leader>T", ":lua require('user.utils').GtagsText()<cr>", opts)
+
+-- hop插件
+-- enhance f motion
+keymap('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+keymap('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+keymap('o', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
+keymap('o', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, inclusive_jump = true })<cr>", {})
+keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+
+keymap('n', '<leader><leader>w', "<cmd>HopWord<cr>", {})
+keymap('n', '<leader><leader>j', "<cmd>HopLine<cr>", {})
+keymap('n', '<leader><leader>c', "<cmd>HopChar1<cr>", {})
+-- high str keybingds
+vim.api.nvim_set_keymap(
+    "v",
+    "<leader>hh",
+    ":<c-u>HSHighlight 1<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+vim.api.nvim_set_keymap(
+    "v",
+    "<leader>hr",
+    ":<c-u>HSRmHighlight<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+vim.api.nvim_set_keymap(
+    "n",
+    "<leader>hr",
+    ":HSRmHighlight<CR>",
+    {
+        noremap = true,
+        silent = true
+    }
+)
+
+
