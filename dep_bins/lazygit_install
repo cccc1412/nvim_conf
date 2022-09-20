@@ -1,0 +1,3 @@
+sudo cp ./lazygit /usr/local/bin/
+chmod +x /usr/local/bin/lazygit
+cp config.yml ~/.config/lazygit/config.yml
