@@ -1,3 +1,4 @@
 sudo cp ./lazygit /usr/local/bin/
 chmod +x /usr/local/bin/lazygit
+mkdir ~/.config/lazygit
 cp config.yml ~/.config/lazygit/config.yml
