@@ -22,7 +22,7 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
+keymap("n", "<C-x>", ":q<cr>", opts)
 
 -- NOTE: require winshit plugin
 keymap("n", "<C-W>m", ":WinShift<cr>", opts)
@@ -160,8 +160,8 @@ keymap('n', '<leader>k', '[c', opts)
 -- keymap("n", "gcf", "<cmd>Dox<cr>", opts)
 
 -- sniprun
--- keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
--- keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
+keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
+keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
 
 -- spell check
 -- vim.cmd(
