@@ -13,13 +13,13 @@ dap.configurations.cpp = {
     type = "cppdbg",
     request = "launch",
     program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/build/', 'file')
     end,
     args = function()
       local input = vim.fn.input("Input args: ")
       return require("user.dap.dap-util").str2argtable(input)
     end,
-    cwd = '${workspaceFolder}',
+    cwd = '${workspaceFolder}/build',
     stopOnEntry = true,
     setupCommands = {
       {

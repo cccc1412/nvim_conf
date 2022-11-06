@@ -26,12 +26,12 @@ end
 cmake.setup({
   cmake_executable = 'cmake', -- CMake executable to run.
   parameters_file = 'neovim.json', -- JSON file to store information about selected target, run arguments and build type.
-  build_dir = tostring(Path:new('{cwd}', 'build', '{os}-{build_type}')), -- Build directory. The expressions `{cwd}`, `{os}` and `{build_type}` will be expanded with the corresponding text values.
+  build_dir = tostring(Path:new('{cwd}', 'build')), -- Build directory. The expressions `{cwd}`, `{os}` and `{build_type}` will be expanded with the corresponding text values.
   -- samples_path = tostring(script_path:parent():parent():parent() / 'samples'), -- Folder with samples. `samples` folder from the plugin directory is used by default.
-  default_projects_path = tostring(Path:new(vim.loop.os_homedir(), 'Projects')), -- Default folder for creating project.
+  default_projects_path = tostring(Path:new(vim.loop.os_homedir(), 'code')), -- Default folder for creating project.
   configure_args = { '-D', 'CMAKE_EXPORT_COMPILE_COMMANDS=1' }, -- Default arguments that will be always passed at cmake configure step. By default tells cmake to generate `compile_commands.json`.
   build_args = {
-    '-j8',
+    '-j16',
   }, -- Default arguments that will be always passed at cmake build step.
   on_build_output = nil, -- Callback which will be called on every line that is printed during build process. Accepts printed line as argument.
   quickfix_height = 10, -- Height of the opened quickfix.
@@ -40,7 +40,7 @@ cmake.setup({
     name = "Launch file",
     type = "cppdbg",
     request = "launch",
-    cwd = '${workspaceFolder}',
+    cwd = '${workspaceFolder}/build',
     stopOnEntry = false,
     runInTerminal = true,
     setupCommands = {
