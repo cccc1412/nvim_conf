@@ -8,7 +8,9 @@ local function config_dapi_and_sign()
 
   local dap_breakpoint = {
     error = {
-      text = "🛑",
+      -- text = "🧘🛑⊚ ⭕🔵🚫👉⭐️⛔️🔴",
+      --text = "🛑"
+      text = "⛔️",
       texthl = "LspDiagnosticsSignError",
       linehl = "",
       numhl = "",
@@ -20,7 +22,7 @@ local function config_dapi_and_sign()
       numhl = "",
     },
     stopped = {
-      text = "⭐️",
+      text = "👉",
       texthl = "LspDiagnosticsSignInformation",
       linehl = "DiagnosticUnderlineInfo",
       numhl = "LspDiagnosticsSignInformation",
@@ -36,7 +38,7 @@ local function config_dapui()
   local dap, dapui = require "dap", require "dapui"
 
   local debug_open = function()
-    dapui.open()
+    dapui.open({reset = true})
     vim.api.nvim_command("DapVirtualTextEnable")
   end
   local debug_close = function()

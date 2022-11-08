@@ -15,9 +15,17 @@ dapui.setup ({
     repl = "r",
     toggle = "t",
   },
+  -- Use this to override mappings for specific elements
+  element_mappings = {
+    -- Example:
+    -- stacks = {
+    --   open = "<CR>",
+    --   expand = "o",
+    -- }
+  },
   -- Expand lines larger than the window
   -- Requires >= 0.7
-  expand_lines = vim.fn.has("nvim-0.7"),
+  expand_lines = vim.fn.has("nvim-0.7") == 1,
   -- Layouts define sections of the screen to place windows.
   -- The position can be "left", "right", "top" or "bottom".
   -- The size specifies the height/width depending on position. It can be an Int
@@ -29,12 +37,13 @@ dapui.setup ({
     {
       elements = {
       -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
+      --  { id = "scopes", size = 0.25 },
+      --  "breakpoints",
         "stacks",
-        "watches",
+        "scopes",
+      --  "watches",
       },
-      size = 40, -- 40 columns
+      size = 60, -- 40 columns
       position = "left",
     },
     {
@@ -42,8 +51,24 @@ dapui.setup ({
         "repl",
         "console",
       },
-      size = 0.25, -- 25% of total lines
-      position = "bottom",
+      size = 60, -- 25% of total lines
+      position = "right",
+    },
+  },
+  controls = {
+    -- Requires Neovim nightly (or 0.8 when released)
+    enabled = true,
+    -- Display controls in this element
+    element = "repl",
+    icons = {
+      pause = "",
+      play = "",
+      step_into = "",
+      step_over = "",
+      step_out = "",
+      step_back = "",
+      run_last = "↻",
+      terminate = "□",
     },
   },
   floating = {
@@ -54,7 +79,7 @@ dapui.setup ({
       close = { "q", "<Esc>" },
     },
   },
-  windows = { indent = 1 },
+  -- windows = { indent = 0 },
   render = {
     max_type_length = nil, -- Can be integer or nil.
     max_value_lines = 100, -- Can be integer or nil.

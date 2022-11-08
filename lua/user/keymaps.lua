@@ -49,7 +49,7 @@ keymap("n", "<C-t>", ":ToggleTerm<cr>", opts)
 -- exit cur window
 keymap("n", "<leader>q", ":q<cr>", opts)
 -- delete cur buffer
--- keymap("n", "<leader>d", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
+keymap("n", "<leader>d", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 -- keymap("n", "<leader>D", ":bp<bar>sp<bar>bn<bar>bd<CR>", opts)
 -- exit whole program
 -- keymap("n", "ZZ", ":lua require('user.utils').SaveAndExit()<cr>", opts)
@@ -79,10 +79,10 @@ keymap("n", "R", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "E", ":BufferLineCyclePrev<CR>", opts)
 
 -- Navigate line
--- keymap("n", "H", "^", opts)
--- keymap("n", "L", "$", opts)
--- keymap("v", "H", "^", opts)
--- keymap("v", "L", "$", opts)
+keymap("n", "H", "^", opts)
+keymap("n", "L", "$", opts)
+keymap("v", "H", "^", opts)
+keymap("v", "L", "$", opts)
 
 -- Move text up and down
 -- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -160,8 +160,8 @@ keymap('n', '<leader>k', '[c', opts)
 -- keymap("n", "gcf", "<cmd>Dox<cr>", opts)
 
 -- sniprun
-keymap("n", "<leader>rf", ":%SnipRun<cr>", opts)
-keymap("v", "<leader>rs", ":%SnipRun<cr>", opts)
+keymap("n", "<leader>sr", ":%SnipRun<cr>", opts)
+keymap("v", "<leader>sr", ":%SnipRun<cr>", opts)
 
 -- spell check
 -- vim.cmd(

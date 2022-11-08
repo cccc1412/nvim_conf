@@ -195,8 +195,7 @@ return packer.startup(function(use)
   -- Debugger
   use "ravenxrz/DAPInstall.nvim" -- help us install several debuggers
   use {
-    "ravenxrz/nvim-dap",
-    -- commit = "f9480362549e2b50a8616fe4530deaabbc4f889b",
+    "mfussenegger/nvim-dap",
   }
   use "theHamsta/nvim-dap-virtual-text"
   use "rcarriga/nvim-dap-ui"
@@ -224,6 +223,7 @@ return packer.startup(function(use)
   -- use "navarasu/onedark.nvim"
   use({
     "catppuccin/nvim",
+    as = "catppuccin"
   })
   use {
     "projekt0n/github-nvim-theme",
@@ -286,14 +286,26 @@ return packer.startup(function(use)
   -- use "dstein64/vim-startuptime"
   use "ravenxrz/vim-local-history"
   -- use "henriquehbr/nvim-startup.lua"
-  -- use "AckslD/nvim-neoclip.lua"
+  use {
+    "AckslD/nvim-neoclip.lua",
+    requires = {
+      {'kkharji/sqlite.lua', module = 'sqlite'},
+      -- you'll need at least one of these
+      -- {'nvim-telescope/telescope.nvim'},
+      -- {'ibhagwan/fzf-lua'},
+    },
+    config = function()
+      require('neoclip').setup()
+    end,
+  }
   use "vim-test/vim-test"
   use { 'michaelb/sniprun', run = 'bash ./install.sh' }
   -- use "ravenxrz/DoxygenToolkit.vim"
   use "Pocco81/AutoSave.nvim"
   use "djoshea/vim-autoread"
   -- use "chipsenkbeil/distant.nvim"
-
+  
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

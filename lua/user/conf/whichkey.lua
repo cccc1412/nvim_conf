@@ -87,7 +87,7 @@ local mappings = {
   -- },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },
+  ["q"] = { "<cmd>qall<CR>", "Quit" },
   -- ["/"] = { "<cmd>lua require('Comment').toggle()<CR>", "Comment" },
   ["C"] = { "<cmd>%bd|e#<CR>", "Close Other Buffers" },
   -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
@@ -111,9 +111,9 @@ local mappings = {
 
   ["P"] = { "<cmd>SessionManager load_session<cr>", "Projects" },
 
-  ["t"] = {
-    "<cmd>UltestSummary<CR>", "Unit Test"
-  },
+  --["t"] = {
+  --  "<cmd>UltestSummary<CR>", "Unit Test"
+  -- },
 
   ["o"] = {
     "<cmd>SymbolsOutline<CR>", "Outline"
@@ -219,7 +219,6 @@ local mappings = {
     -- -- 全项目中搜索当前单词
     -- vim.keybinds.gmap("n", "<leader>rw", , vim.keybinds.opts)
   },
-
   l = {
     name = "LSP",
     l = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -231,7 +230,7 @@ local mappings = {
       "<cmd>Telescope lsp_workspace_diagnostics<cr>",
       "Workspace Diagnostics",
     },
-    f = { "<cmd>Format<cr>", "Format" },
+    f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
@@ -244,11 +243,11 @@ local mappings = {
     },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    S = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
-    },
+    -- s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+    -- S = {
+    --  "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+    --  "Workspace Symbols",
+    --},
   },
 
   -- h = {
@@ -265,17 +264,17 @@ local mappings = {
   h = {
     name = "Help",
     -- b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    s = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    m = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
+    r = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    c = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
 
-   t = {  "<cmd>ToggleTerm direction=float<cr>", "Float" 
+   t = {  "<cmd>ToggleTerm direction=float<cr>", "Float Terminal" 
   --   name = "Terminal",
   --   n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
   --   u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
